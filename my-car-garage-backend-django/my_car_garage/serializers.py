@@ -25,14 +25,14 @@ class VehicleSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Vehicle
-        fields = ('user', 'make', 'model', 'year', 'color', 'odometer', 'services')
+        fields = ('id','user', 'make', 'model', 'year', 'color', 'odometer', 'services')
         
 class NoteSerializer(serializers.ModelSerializer):
     
-    # services = serializers.HyperlinkedRelatedField(
+    # users = serializers.HyperlinkedRelatedField(
     #     many=True,
     #     read_only=True,
-    #     view_name='vehicle-detail'
+    #     view_name='user-detail'
     # )
     
     class Meta:

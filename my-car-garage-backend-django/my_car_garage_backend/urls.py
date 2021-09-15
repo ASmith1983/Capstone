@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.views.generic import TemplateView
 from django.urls import path, include
 from rest_framework import routers
 from my_car_garage import views
@@ -24,6 +25,10 @@ router.register(r'vehicles', views.VehicleView, 'vehicle'),
 router.register(r'notes', views.NoteView, 'note'),
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name='react.html')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    # path('', include('my_car_gaage_backend.urls')),
+    
+    # path('api/posts/', include('my_car_garage.urls'))
 ]
