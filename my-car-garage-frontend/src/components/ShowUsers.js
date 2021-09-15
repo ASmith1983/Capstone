@@ -49,6 +49,8 @@ const ShowUsers = () => {
                         <Card.Text> Id: { AllUser.id } </Card.Text>
                         <Card.Text> Name: { AllUser.name } </Card.Text>
                         <Card.Text> Location: { AllUser.location } </Card.Text>
+                        <Card.Link href="`http://localhost:8000/api/vehicles/:id/`"> Vehicles: { AllUser.vehicles } </Card.Link>
+
                             {/* <Card.Text> Vehicles: { AllUser.vehicles } </Card.Text> */}
                             {/* <Link className="btn btn-primary mr-2" to={`/${vehicles/AllUser.id}`}>Vehicles</Link> */}
                     </Card.Body>    

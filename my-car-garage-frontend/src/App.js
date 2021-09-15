@@ -4,6 +4,7 @@ import ShowVehicles from './components/ShowVehicles';
 import ShowUsers from './components/ShowUsers';
 import ShowServices from './components/ShowServices';
 import UserForm from './components/UserForm';
+import ShowDetails from './components/ShowDetails';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBarMenu';
@@ -15,7 +16,8 @@ function App() {
       <NavBar />
         <Switch>
             <Route exact path="/" component={ShowUsers} />
-            <Route exact path="/vehicles" component={ShowVehicles} />
+            <Route exact path="/vehicles/" component={ShowVehicles} />
+            <Route exact path="/vehicles/:id/" component={ShowDetails} />
             <Route exact path="/services" component={ShowServices} />
             <Route exact path="/userform" component={UserForm} />
         </Switch>
