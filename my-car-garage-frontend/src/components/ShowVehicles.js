@@ -27,7 +27,17 @@ return (
     <div>
        
         {/* <ShowUsers key={allUsers} allUsers={allUsers} /> */}
-        <h1>This is the ShowVehicles page/Component </h1>
+        <h1>Current vehicles in garage 
+        <h2> Select a vehicle below to view history of services</h2> 
+                <button 
+                            type="button"
+                            onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href='http://localhost:3000/vehicleform';
+                        }}
+                >Add a vehicle </button> 
+        </h1>
+        
         {
             
             allVehicles.map((AllVehicle, index) => (
@@ -35,20 +45,20 @@ return (
                         type="button"
                         onClick={(e) => {
                         e.preventDefault();
-                        window.location.href=`http://localhost:3000/api/notes/${AllVehicle.id}/`;
+                        window.location.href=`http://localhost:3000/user/vehicle/servives/${AllVehicle.id}/`;
                       }}
                     > 
                     <Card className="m-3 rounded d-block shadow-lg user-show-card">
                     {/* <Card.Img variant="top" src={""} alt="user-Image" /> */}
                     <Card.Body>
-                        <Card.Title> {AllVehicle.user}'s Garage </Card.Title>
+                        <Card.Title> id: {AllVehicle.id} </Card.Title>
                         <Card.Text> Make: { AllVehicle.make } </Card.Text>
                         <Card.Text> Model: { AllVehicle.model } </Card.Text>
                         <Card.Text> Year: { AllVehicle.year } </Card.Text>
                         <Card.Text> Color: { AllVehicle.color } </Card.Text>
                         <Card.Text> Odometer: { AllVehicle.odometer } </Card.Text>
                         <Card.Text> Vehicle id: { AllVehicle.id } </Card.Text>
-                        <Card.Link href="`http://localhost:8000/api/notes/:id/`"> Services: { AllVehicle.services } </Card.Link>
+                        <Card.Link href="`http://localhost:3000/user/vehicle/services/:id/`"> Services: { AllVehicle.services } </Card.Link>
                             {/* <Card.Text> Vehicles: { AllVehicle.vehicles } </Card.Text> */}
                             {/* <Link className="btn btn-primary mr-2" to={`/${vehicles/AllVehicle.id}`}>Vehicles</Link> */}
                     </Card.Body>    

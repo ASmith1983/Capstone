@@ -39,7 +39,7 @@ const ShowUsers = () => {
                         type="button"
                         onClick={(e) => {
                         e.preventDefault();
-                        window.location.href=`http://localhost:3000/api/vehicles/${AllUser.id}/`;
+                        window.location.href=`http://localhost:3000/user/vehicles/${AllUser.id}/`;
                       }}
                     > 
                     <Card className="m-3 rounded d-block shadow-lg user-show-card">
@@ -49,7 +49,7 @@ const ShowUsers = () => {
                         <Card.Text> Id: { AllUser.id } </Card.Text>
                         <Card.Text> Name: { AllUser.name } </Card.Text>
                         <Card.Text> Location: { AllUser.location } </Card.Text>
-                        <Card.Link href="`http://localhost:8000/api/vehicles/:id/`"> Vehicles: { AllUser.vehicles } </Card.Link>
+                        {/* <Card.Link href="`http://localhost:3000/user/vehicles/:id/`"> Vehicles: { AllUser.vehicles } </Card.Link> */}
 
                             {/* <Card.Text> Vehicles: { AllUser.vehicles } </Card.Text> */}
                             {/* <Link className="btn btn-primary mr-2" to={`/${vehicles/AllUser.id}`}>Vehicles</Link> */}

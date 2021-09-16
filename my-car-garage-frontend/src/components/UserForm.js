@@ -24,7 +24,7 @@ const UserForm = () => {
             data: formField
         }).then(response => {
             console.log(response.data);
-            history.push('/')
+            history.push('/users')
         })
        
     }
