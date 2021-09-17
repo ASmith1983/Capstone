@@ -25,7 +25,7 @@ class VehicleSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Vehicle
-        fields = ('id','user', 'make', 'model', 'year', 'color', 'odometer', 'services')
+        fields = ('user_id','user', 'make', 'model', 'year', 'color', 'odometer', 'services')
         
 class NoteSerializer(serializers.ModelSerializer):
     

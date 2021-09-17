@@ -38,9 +38,16 @@
 }
 
 .user-show-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
   margin: 5%;
   padding-left: 25%;
   padding-right: 25%;
+  /* border-radius: 25%; */
+  box-shadow: dodgerblue;
+  padding-block: 5%;
 }
 
 /* .user-show-card {
@@ -53,3 +60,45 @@
   width: 50%;
   border-radius: 5%;
 } */ 
+
+.user-button{
+  margin: 5%;
+  border: darkblue;
+  border-radius: 12px;;
+  box-shadow: #282c34;
+  box-sizing: border-box;
+
+
+}
+.vehicle-show-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5%;
+  padding-left: 25%;
+  padding-right: 25%;
+  /* border-radius: 25%; */
+  box-shadow: dodgerblue;
+  padding-block: 5%;
+}
+.vehicle-show-content{
+  display: block;
+  block-size: auto;
+}
+.serviceUrl{
+  display: flex;
+  flex-direction: column;
+}
+.vehicle-show-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5%;
+  padding-left: 25%;
+  padding-right: 25%;
+  
+  padding-block: 5%;
+
+}

@@ -47,7 +47,7 @@ const VehicleForm = () => {
                             <input
                                 type="text"
                                 className="form-control form-control-lg"
-                                placeholder="Enter Vehicle's user"
+                                placeholder="Enter Vehicle's user id"
                                 name="user"
                                 value={user}
                                 onChange={(e) => setUser(e.target.value)}
