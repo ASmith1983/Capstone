@@ -9,9 +9,9 @@ def seed(apps, schema_editor):
     
     andrew = User(name = "Andrew", location = "Northern California")
     andrew.save()
-    honda = Vehicle(user = "Andrew", make="Honda")
-    honda.save()
-    Note(vehicle = honda, service= "oil change", current_Odometer= 9999).save()
+    # honda = Vehicle(user = "Andrew", make="Honda")
+    # honda.save()
+    # Note(vehicle = honda, service= "oil change", current_Odometer= 9999).save()
     
     
 def fallow(apps, schema_editor):

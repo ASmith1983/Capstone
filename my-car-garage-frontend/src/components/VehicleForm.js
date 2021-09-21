@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios'
 
 const VehicleForm = () => {
@@ -12,8 +12,9 @@ const VehicleForm = () => {
     const [color, setColor] = useState("")
     const [odometer, setOdometer] = useState("")
     // const [services, setServices] = useState(null)
-
-
+    const { id } = useParams()
+    console.log(id);
+ 
     const vehicleHistory = useHistory();
 
     const AddVehicleInfo = () => {

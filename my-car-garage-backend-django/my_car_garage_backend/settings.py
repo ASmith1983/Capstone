@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'my_car_garage',
-        'USER': 'a_user',
+        'USER': 'user01',
         'PASSWORD': 'password',
         'HOST': 'localhost'
     }

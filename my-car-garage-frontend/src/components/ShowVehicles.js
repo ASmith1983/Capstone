@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import ShowUsers from './ShowUsers'
+// import ShowUsers from './ShowUsers'
 import { Card } from 'react-bootstrap';
 // import ShowUsers from './ShowUsers';
 // const Allusers = (allUsers)
@@ -28,9 +28,7 @@ return (
         <h1>Current vehicles in garage </h1>
         <h2> Select a vehicle below to view history of services or to add a vehicle click the link below.</h2>        
         
-        {
-            
-            allVehicles.map((AllVehicle, index) => (
+        { allVehicles.user_id ? allVehicles.map((AllVehicle, index) => (
                 <button 
                         type="button"
                         onClick={(e) => {
@@ -41,7 +39,7 @@ return (
                     <Card className="m-3 rounded d-block shadow-lg user-show-card">
                     {/* <Card.Img variant="top" src={""} alt="user-Image" /> */}
                     <Card.Body>
-                        <Card.Title> id: {AllVehicle.id} </Card.Title>
+                        <Card.Title> User_id: {AllVehicle.user_id} </Card.Title>
                         <Card.Text> Make: { AllVehicle.make } </Card.Text>
                         <Card.Text> Model: { AllVehicle.model } </Card.Text>
                         <Card.Text> Year: { AllVehicle.year } </Card.Text>
@@ -69,7 +67,7 @@ return (
                 //     /> */}
                 // </div>
             )
-            )
+            ):<h1> No user here.. </h1>
         }
         <button 
                             type="button"

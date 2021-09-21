@@ -25,8 +25,7 @@ const ShowUsers = () => {
             <h1>Welcome to My Car garage
                 <h2> Select a user to view their garage or add a new user below</h2> 
             </h1>
-            {
-                allUsers.map((user, index) => (
+            { allUsers ? allUsers.map((user, index) => (
                     
                     <button 
                         className="user-button"
@@ -44,16 +43,17 @@ const ShowUsers = () => {
                         <Card.Text> Name: { user.name } </Card.Text>
                         <Card.Text> Location: { user.location } </Card.Text>
 
-                    {   user.vehicles.map( (vehicleUrl, index) => {
+                    {  user.vehicles ? user.vehicles.map( (vehicleUrl, index) => {
+                        console.log(vehicleUrl)
                         
-                        return (<li href={vehicleUrl}> vehicle: {index + 1}</li>)
+                        return (<li href={vehicleUrl.user_id}> {vehicleUrl.make}</li>)
                         // return (<p> test </p>)
-                    })}
+                    }):  <h1> No user found in Garage </h1>}
                     </Card.Body>    
                     </Card>
                     </button>
                 )
-                )
+                ): <h1> No user found in Garage </h1>
             }
             
                     <button     

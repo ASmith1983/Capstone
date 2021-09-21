@@ -5,6 +5,7 @@ import axios from 'axios'
 const ServiceForm = () => {
     // const[image, setImage] = useState(null)
     const [vehicle, setVehicle] = useState("")
+    const [vehicle_id, setVehicle_id] = useState("")
     const [service, setService] = useState("")
     const [notes, setNotes] = useState([])
     const [current_odometer, setCurrent_odometer] = useState(null)
@@ -14,8 +15,8 @@ const ServiceForm = () => {
 
     const AddServiceInfo = () => {
         let formField = new FormData()
-
-        formField.append('vehicle', vehicle)
+        formField.append('vehicle',vehicle)
+        formField.append('vehicle_id', vehicle_id)
         formField.append('service', service)
         formField.append('notes', notes)
         formField.append('current_odometer', current_odometer)
@@ -36,7 +37,7 @@ const ServiceForm = () => {
 
     return (
         <div>
-            <h1> Creat User Profile </h1>
+            <h1> Add a service </h1>
             <div className="container">
                 <div className="form-group">
                         <div className="form-group">
@@ -47,6 +48,17 @@ const ServiceForm = () => {
                                 name="vehicle"
                                 value={vehicle}
                                 onChange={(e) => setVehicle(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                className="form-control form-control-lg"
+                                placeholder="Enter vehicle_id for service"
+                                name="vehicle_id"
+                                value={vehicle_id}
+                                onChange={(e) => setVehicle_id(e.target.value)}
                             />
                         </div>
                         <div className="form-group">

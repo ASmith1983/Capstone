@@ -2,39 +2,44 @@ from django.db import models
 from rest_framework import serializers
 from .models import User, Vehicle, Note
 
-class UserSerializer(serializers.ModelSerializer):
-    
-    vehicles = serializers.HyperlinkedRelatedField(
-        many=True,
-        read_only=True,
-        view_name='vehicle-detail'
-    )
-    
-    class Meta:
-        model = User
-        fields = ('id','name', 'location', 'vehicles')
-        
-
-class VehicleSerializer(serializers.ModelSerializer):
-    
-    services = serializers.HyperlinkedIdentityField(
-        many=True,
-        read_only=True,
-        view_name='note-detail'
-    )
-    
-    class Meta:
-        model = Vehicle
-        fields = ('user_id','user', 'make', 'model', 'year', 'color', 'odometer', 'services')
-        
 class NoteSerializer(serializers.ModelSerializer):
-    
-    # users = serializers.HyperlinkedRelatedField(
+    note_links = serializers.HyperlinkedIdentityField(view_name="note-detail")
+    # users = UserSerializer(
     #     many=True,
     #     read_only=True,
-    #     view_name='user-detail'
     # )
     
     class Meta:
         model = Note
-        fields = ('vehicle', 'service', 'notes', 'current_odometer', 'created', 'updated', 'completed')
+        fields = ('id','vehicle', 'vehicle_id','service', 'notes', 'current_odometer', 'created', 'updated', 'completed','note_links')
+
+class VehicleSerializer(serializers.ModelSerializer):
+    
+    services = NoteSerializer(
+        many=True,
+        read_only=True,
+        
+    )
+    
+    class Meta:
+        model = Vehicle
+        fields = ('id','user_id','user', 'make', 'model', 'year', 'color', 'odometer', 'services')
+        
+        
+class UserSerializer(serializers.ModelSerializer):
+    
+    vehicle_links = serializers.HyperlinkedIdentityField(view_name="vehicle-detail")
+    
+    
+    vehicles = VehicleSerializer(
+        many=True,
+        read_only=True,
+       
+    )
+    
+    class Meta:
+        model = User
+        fields = ('id','name', 'location', 'vehicles','vehicle_links')
+        
+
+        

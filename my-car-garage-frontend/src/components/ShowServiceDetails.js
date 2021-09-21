@@ -1,40 +1,44 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Card } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+
 
 
 const ShowServiceDetails = () => {
 
-    const [serviceDetails, setServiceDetails] = useState("")
+    const [serviceDetails, setServiceDetails] = useState([])
     console.log(serviceDetails)
+    
+    // const history = useHistory ();
 
-    const { id } = useParams();
+    const {id} = useParams();
+    console.log(id)
+
+    const URL = `http://localhost:8000/api/notes/${id}/`
+    console.log(URL);
     
-    
-    const getOneVehicle = async ()=> {
-        const response = await axios.get(`http://localhost:8000/api/notes/${id}/`)
+    useEffect(() => {
+        getOneService();
+    },[])
+
+    const getOneService = async ()=> {
+        const response = await axios.get(URL)
         console.log(response.data)
         setServiceDetails(response.data);
     }
-    useEffect(() => {
-        getOneVehicle();
-    },[])
+
+    const deleteService = async (id) => {
+        await axios.delete(URL)
+    }
 
     return (
 
             <div className="user-show-box">
-            <h1>Services for vehicle 
+            <h1>Services for vehicle </h1>
                 <h2> Select a vehicle below to view history of services or add a Vehicle below</h2> 
-                        <button 
-                                        className="user-button"
-                                        type="button"
-                                        onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href='http://localhost:3000/vehicleform';
-                                    }}
-                            >Add a vehicle </button> 
-                    </h1>
+                        
+                    
                 <h1> Vehicle Detail </h1>
                 <div className="user-show-box">
                     <p>{serviceDetails.id}</p>
@@ -42,15 +46,24 @@ const ShowServiceDetails = () => {
                     <p>{serviceDetails.notes}</p>
                     <p>{serviceDetails.current_odometer}</p>
                     <p>{serviceDetails.completed}</p>
-                    <p>{serviceDetails.services}</p>
+                    <li href={serviceDetails.services}>{serviceDetails.services.id}</li>
                     
                 </div>
+                <button 
+                                        className="user-button"
+                                        type="button"
+                                        onClick={(e) => {
+                                        e.preventDefault();
+                                        window.location.href=`http://localhost:3000//user/vehicles/services/${id}/update`;
+                                    }}
+                            >Update a Service </button> 
+                <button onClick={() => deleteService()} className="user-button">Delete a Service</button>
             </div>
 
 
     //     <div>
        
-    //     {/* <ShowUsers key={allUsers} allUsers={allUsers} /> */}
+    //    {/* <ShowUsers key={allUsers} allUsers={allUsers} /> */} 
     //     <h1>Current vehicles in garage 
     //     <h2> Select a vehicle below to view history of services or add a Vehicle below</h2> 
     //             <button 
@@ -89,15 +102,11 @@ const ShowServiceDetails = () => {
     //                 </Card.Body>    
     //                 </Card>
     //                 </button>
-
-
-
     //             // <div>
     //             //     <p> { AllVehicle.make } </p>
     //             //     <p> { AllVehicle.id } </p>
     //             //     <p> { AllVehicle.model } </p>
     //             //     {/* <img
-    //             //         src = {`https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`
 
     //             //         scr= {`http://www.regcheck.org.uk/image.aspx/@Zm9yZCBmaWVzdGE=${AllVehicle.make}+${AllVehicle.model}`}
     //             //         alt= "vehicle-img"
@@ -107,6 +116,7 @@ const ShowServiceDetails = () => {
     //         )
     //     }
     // </div>
+        
     )    
 }
 

@@ -16,3 +16,4 @@ class VehicleView(viewsets.ModelViewSet):
 class NoteView(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     queryset = Note.objects.all()
+   

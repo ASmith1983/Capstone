@@ -3,8 +3,8 @@ import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 
 const NavBarMenu = () => {
     return (
-        <div>
-            <Navbar bg="light" expand="lg">
+        <div className="nav-bar" >
+            <Navbar bg="light" expand="lg" >
                 <Container>
                     <Navbar.Brand href="/">My Car Garage</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

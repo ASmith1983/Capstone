@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -42,7 +43,7 @@
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
-  margin: 5%;
+  margin: 0 auto;
   padding-left: 25%;
   padding-right: 25%;
   /* border-radius: 25%; */
@@ -83,8 +84,14 @@
   padding-block: 5%;
 }
 .vehicle-show-content{
-  display: block;
-  block-size: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5%;
+  padding-left: 25%;
+  padding-right: 25%;
+  /* padding: 5%; */
 }
 .serviceUrl{
   display: flex;
@@ -95,10 +102,14 @@
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
-  margin: 5%;
+  /* margin: 25%; */
   padding-left: 25%;
   padding-right: 25%;
-  
-  padding-block: 5%;
+  /* padding: 5%; */
+  shape-image-threshold: inherit;
 
+}
+
+.nav-bar{
+  background-color: rgb(32, 83, 249);
 }
