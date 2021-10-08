@@ -17,7 +17,7 @@ class VehicleSerializer(serializers.ModelSerializer):
     
     services = NoteSerializer(
         many=True,
-        read_only=True,
+        
         
     )
     

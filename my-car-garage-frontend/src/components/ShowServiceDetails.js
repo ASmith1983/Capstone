@@ -18,19 +18,20 @@ const ShowServiceDetails = () => {
     const URL = `http://localhost:8000/api/notes/${id}/`
     console.log(URL);
     
-    useEffect(() => {
-        getOneService();
-    },[])
-
-    const getOneService = async ()=> {
+    
+    const getOneService = async () => {
         const response = await axios.get(URL)
         console.log(response.data)
-        setServiceDetails(response.data);
+            return setServiceDetails(response.data);
     }
-
+    
     const deleteService = async (id) => {
         await axios.delete(URL)
     }
+    useEffect(() => {
+        getOneService();
+    },[])
+    console.log(serviceDetails);
 
     return (
 
@@ -39,24 +40,21 @@ const ShowServiceDetails = () => {
                 <h2> Select a vehicle below to view history of services or add a Vehicle below</h2> 
                         
                     
-                <h1> Vehicle Detail </h1>
+                <h1> Service Detail </h1>
                 <div className="user-show-box">
-                    <p>{serviceDetails.id}</p>
-                    <p>{serviceDetails.vehicle}</p>
-                    <p>{serviceDetails.notes}</p>
-                    <p>{serviceDetails.current_odometer}</p>
-                    <p>{serviceDetails.completed}</p>
-                    <li href={serviceDetails.services}>{serviceDetails.services.id}</li>
-                    
+                    <p>Service Id: {serviceDetails.id}</p>
+                    <p>Vehicle Id: {serviceDetails.vehicle}</p>
+                    <p>Notes from service: {serviceDetails.notes}</p>
+                    <p>Odometer: {serviceDetails.current_odometer}</p>
                 </div>
                 <button 
                                         className="user-button"
                                         type="button"
                                         onClick={(e) => {
                                         e.preventDefault();
-                                        window.location.href=`http://localhost:3000//user/vehicles/services/${id}/update`;
+                                        window.location.href=`/user/vehicles/services/${id}/update`;
                                     }}
-                            >Update a Service </button> 
+                            >Update Service </button> 
                 <button onClick={() => deleteService()} className="user-button">Delete a Service</button>
             </div>
 
